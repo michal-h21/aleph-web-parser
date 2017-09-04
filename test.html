@@ -1,0 +1,584 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!-- filename: full-set-head-ill-nobor --> 
+<html> 
+<head> 
+<!-- filename: meta-tags --> 
+  <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+  <META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+  <META HTTP-EQUIV="Expires" CONTENT="Sun, 06 Nov 1994 08:49:37 GMT"> 
+  <META HTTP-EQUIV="REFRESH" CONTENT="1200; URL=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62553?func=logout"> 
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"> 
+  <link rel="stylesheet" href="https://ckis.cuni.cz:443/exlibris.css" TYPE="text/css"> 
+<!-- end filename: meta-tags --> 
+<title>CKIS - Úplné zobrazení záznamu</title> 
+ 
+<!-- kód pro zpracování jSONu--> 
+<script src="https://ckis.cuni.cz/jscript/jquery.js"></script> 
+<script src="https://ckis.cuni.cz/jscript/citace_cks01.js"></script> 
+<script src="https://ckis.cuni.cz/jscript/obalky_knih.js"></script> 
+<script src="https://ckis.cuni.cz/jscript/ext_xx_link.js"></script> 
+<!-- konec kódu pro zpracování jSONu--> 
+ 
+<link rel="stylesheet" href="https://ckis.cuni.cz:443/ext_xx_link.css" TYPE="text/css"> 
+ 
+<script type="text/javascript"> 
+<!-- 
+{ var sysno = '001605176'; var baze = 'CKS01'; } 
+// --> 
+</script> 
+ 
+<script type="text/javascript"> 
+<!-- 
+//Becouse the replaceWhat string will be used in regular expression it's necessary 
+//to escape special characters like &, ., +, [, ] etc. by backslash '\' which have to be escaped to. 
+//All parameters are interpreted by browser before pass in function. So if we want to replace 
+//for example '&lt;' by '<' we have to wright '\\&amp;lt;' and '&lt'. 
+//What's more there is no successfull way to replace each of angle brackets ('<') alone 
+//it has to be replaced as a pair at a time. So for example: 
+//replaceWhatever('fullbody', 'Citace', '\\&amp;lt;(\\/?i)\\&amp;gt;', '&lt;;'); 
+function replaceWhatever(replaceInTable, replaceInRow, replaceWhat, replaceWith) { 
+  if ( document.getElementById && document.getElementById(replaceInTable) ) { 
+    var t = document.getElementById(replaceInTable); 
+    for ( var i = 0; i < t.rows.length; i++ ) { 
+      var row = t.rows[i]; 
+      if (row.cells[0].innerHTML == replaceInRow) { 
+        var pattern = new RegExp(replaceWhat, "gi"); 
+        row.cells[1].innerHTML = row.cells[1].innerHTML.replace(pattern, replaceWith); 
+        break; 
+      } 
+    } 
+  } 
+} 
+--> 
+</script> 
+ 
+<!-- filename: include-window --> 
+<script language="Javascript"> 
+<!-- 
+  function open_window (loc) { 
+    self.name="main"; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=500,width=500,scrollbars,resizable"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=500,width=500,scrollbars,resizable"); } 
+    w.focus(); 
+  } 
+  function open_window2 (loc) { 
+    self.name="main"; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=100,width=500,scrollbars,resizable"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=100,width=500,scrollbars,resizable"); } 
+    w.focus(); 
+  } 
+  function open_window3 (loc) { 
+    self.name="main"; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=400,width=450,scrollbars,resizable,top=200"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=400,width=450,scrollbars,resizable,top=200"); } 
+    w.focus(); 
+  } 
+  function open_window4 (loc) { 
+    self.name="main"; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=150,width=450,scrollbars,resizable,top=200"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=150,width=450,scrollbars,resizable,top=200"); } 
+
+    w.focus(); 
+  } 
+  function open_window_ext (loc) { 
+    self.name="main"; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win2","height=500,width=500,scrollbars,resizable,toolbar,status,menubar"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win2","height=500,width=500,scrollbars,resizable,toolbar,status,menubar"); } 
+    w.focus(); 
+  } 
+  function set_iframe_location(url,id) { 
+    eval('document.all.' + id).src = url; 
+  } 
+  function open_window_confirm (loc,frame) { 
+    self.name=frame; 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=220,width=450,scrollbars,resizable"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=220,width=450,scrollbars,resizable"); } 
+    w.focus(); 
+  } 
+  function delete_win1 () { 
+    var w = window.open ("","win1","height=220,width=450,scrollbars,resizable"); 
+    w.close(); 
+  } 
+  function open_window_ill (loc) { 
+    if ((navigator.appVersion.indexOf("MSIE 5.0") != -1) && (navigator.appName.indexOf("Explorer") != -1)) { 
+      var w = window.open ("","win1","height=500,width=500,scrollbars,resizable"); 
+      w.document.write("<html>\n"); 
+      w.document.write('<body onLoad="window.location.href='); 
+      w.document.write("'" + loc + "';\n"); 
+      w.document.write('"'); 
+      w.document.write("</body>\n"); 
+      w.document.write("</html>\n"); 
+      w.document.close(); 
+    } 
+    else { var w = window.open (loc,"win1","height=500,width=500,scrollbars,resizable"); } 
+    w.focus(); 
+  } 
+// --> 
+</script> 
+<!-- end filename: include-window --> 
+ 
+</head> 
+ 
+<body topmargin="0" onload="obalky_custom_onload();window.focus(); 
+  replaceWhatever('fullbody','Citace','\\&amp;lt;\\I\\&amp;gt;','<I>'); 
+  replaceWhatever('fullbody','Citace','\\&amp;lt;\\/I\\&amp;gt;','</I>');"> 
+ 
+<!-- filename: head-1-nobor-cks01 --> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+  <tr class="top0bar"> 
+    <td valign="middle" height="29" width="139"> 
+      <a href="https://www.cuni.cz" class="blue" target=new title="Univerzita Karlova"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-0.gif" width="139" height="29" border="0" alt="Univerzita Karlova"></a> 
+    </td> 
+ 
+    <td class="top0bar" valign="bottom" height="29" width="*" colspan="15"> 
+       <script type="text/javascript"> 
+         <!-- 
+         var url=location.href; 
+         url=url.replace('&CON_LNG=ENG',''); 
+         document.write('<a href="'+url+'&CON_LNG=CZE"></a>'); 
+         // --> 
+       </script> 
+       <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62554?func=file&file_name=find-a&CON_LNG=CZE"> 
+       <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/cze.gif" width="21" height="13" border="0" alt="Česká verze"></a> 
+       <script type="text/javascript"> 
+         <!-- 
+         var url=location.href; 
+         url=url.replace('&CON_LNG=CZE',''); 
+         document.write('<a href="'+url+'&CON_LNG=ENG"></a>'); 
+         // --> 
+       </script> 
+       <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62555?func=file&file_name=find-a&CON_LNG=ENG"> 
+       <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/eng.gif" width="21" height="13" border="0" alt="English version"></a> 
+       CKIS 
+    </td> 
+ 
+    <td valign="middle" width="123" class=signed_in background="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-right-0.gif"> 
+      <span>NEPŘIHLÁŠEN</span> 
+    </td> 
+  </tr> 
+ 
+  <tr class="topbar"> 
+    <td class="topbar" valign="middle" height="79"  width="139"> 
+      <a href="https://www.cuni.cz" class="blue" target=new title="Univerzita Karlova"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-1.gif" width="139" height="79" border="0" alt="Univerzita Karlova"></a> 
+    </td> 
+ 
+    <td class="topbar" valign="middle" height="79" align="right" width="*" colspan="1"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-middle-1.gif" width="499" height="79" border=0 alt="Centrální katalog UK"> 
+    </td> 
+ 
+    <td class="topbar-right" valign="middle" height="79" width="*" align="right" colspan="14">&nbsp;</td> 
+ 
+    <td class="topbar" valign="middle" height="79" width="123" align="center"> 
+      <a href="http://www.exlibris.co.il" class="blue" target=new title="Ex Libris, producent integrovaného knihovnického systému ALEPH"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-right-1.gif" width="123" height="79" border=0 alt="Aleph logo"></a> 
+    </td> 
+  </tr> 
+ 
+  <tr class="middlebar"> 
+
+    <td class="middlebar" valign="middle" height="31"  width="139"> 
+      <a href="https://www.cuni.cz" class="blue" target=new title="Univerzita  Karlova"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-2.gif" width="139" height="31" border=0 alt="Univerzita Karlova"></a> 
+    </td> 
+ 
+    <td class="middlebar" valign="bottom" height="31" align="center" nowrap colspan="15"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a style="color:red" href="https://ckis.cuni.cz:443/pds?func=load-login&calling_system=aleph&institute=CKS50&lang=CZE&url=https://ckis.cuni.cz/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62556?func=BOR-INFO&CON_LNG=CZE" class="menu" title="Zobrazení informací o vašem účtu v knihovně">Přihlášení - UK</a> 
+<!-- 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a style="color:red" href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62557?func=BOR-INFO" title="Zobrazení informací o vašem účtu v knihovně" class="menu">Přihlášení UK</a> 
+--> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a style="color:red" href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62558?func=file&file_name=login-session" class="menu" title="Zadejte své uživatelské jméno a heslo">Přihlášení - ostatní</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62559?func=file&file_name=logout" class="menu" title="Odhlášení čtenáře a otevření nové relace">Odhlášení</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62560?func=option-show&func_param=DISPLAY-OPTION" class="menu" title="Nastavení vašich voleb pro zobrazení">Nastavení</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62561?func=file&file_name=base-list" class="menu" title="Volba databáze pro vyhledávání">Databáze</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62562?func=file&file_name=feedback" class="menu" title="Zaslání dotazu a připomínek knihovnám">Dotazy a připomínky</a> 
+<!-- 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62563?func=ill-request-1&request_type=ill-book-request" class="menu" title="Po~^adavek na meziknihovní výpůjčku z jiné knihovny">MVS</a> 
+--> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-middle-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62564?func=file&file_name=help-1" class="menu" title="Nápověda k používání tohoto systému" target="new">Nápověda</a> 
+    </td> 
+ 
+    <td class="middlebar" valign="bottom" height="31" width="123" align="center" nowrap> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-right-2.gif" width="123" height="31" border=0 alt="Aleph logo"> 
+    </td> 
+  </tr> 
+ 
+  <tr class="bottombar"> 
+    <td class="bottombar" valign="middle" height="31"  width="123"> 
+      <a href="https://www.cuni.cz" class="blue" target=new title="Univerzita Karlova"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-3.gif" width="139" height="31" border="0" alt="Univerzita Karlova"></a> 
+    </td> 
+ 
+    <td class="bottombar" valign="middle" height="31" align="center" nowrap colspan="15"> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-bottom-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62565?func=find-a-0" class="menu" title="Vyhledávání pomocí údajů z bibliografického záznamu">Vyhledávání</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-bottom-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62566?func=short" class="menu" title="Zobrazení seznamu vyhledaných záznamů">Výsledky dotazu</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-bottom-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62567?func=history" class="menu" title="Použití výsledků předchozích vyhledávání">Předchozí dotazy</a> 
+ 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak10-bottom-bar.gif"> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62568?func=myshelf-short" class="menu" title="Zobrazení záznamů, které jste uložili do své schránky">Má schránka</a> 
+    </td> 
+ 
+    <td class="bottombar" valign="top" height="31" width="123" align="center" nowrap> 
+      <img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-aleph-logo-right-3.gif" width="123" height="31" border=0 alt="Aleph logo"> 
+    </td> 
+  </tr> 
+ 
+  <tr> 
+    <td class="feedbackbar" valign="middle" height="20" align="center" colspan="17" nowrap> &nbsp;</td> 
+  </tr> 
+ 
+  <tr> 
+    <td valign="middle" height="20" background="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-spacer.gif" colspan="17">&nbsp;</td> 
+  </tr> 
+</table> 
+ 
+<!-- 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"> 
+  <tr align="center"> 
+    <td class="text2">Kvůli výpadku služeb systému Shibboleth prosím pro přihlášení do konta čtenáře užijte odkaz Přihlášení - ostatní.<br>Omlouváme se za případné komplikace a děkujeme za pochopení.</td> 
+  </tr> 
+</table> 
+--> 
+<!-- end filename: head-1-nobor-cks01 --> 
+ 
+<table class="bar" width=100% border="0" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width=20%></td> 
+ 
+    <td><img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak14-bar.gif"></td> 
+    <td> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62569?func=myshelf-add-ful-1&doc_library=CKS01&doc_number=001605176" title="Přidat do mé schránky" class="blue">Přidat do mé schránky</a> 
+    </td> 
+ 
+    <td><img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak14-bar.gif"></td> 
+    <td> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62570?func=short-locate-list&doc_number=001605176" title="Lokalizovat v jiných bázích" class="blue">Lokalizovat</a> 
+
+    </td> 
+ 
+    <td><img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak14-bar.gif"></td> 
+    <td> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62571?func=full-mail-0&doc_library=CKS01&doc_number=001605176" title="Uložit/odeslat" class="blue">Uložit/odeslat</a> 
+    </td> 
+ 
+    <td><img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak14-bar.gif"></td> 
+    <td> 
+      <a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62572?func=save-server-0&set_number=003287&set_entry=000001" title="Uložit na server" class=blue>Uložit na server</a> 
+    </td> 
+ 
+    <td><img src="https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/znak14-bar.gif"></td> 
+    <td><div id="sfx_button"></div></td> 
+ 
+    <td width=20%></td> 
+  </tr> 
+</table> 
+ 
+<p class=title>Úplné zobrazení záznamu</p> 
+ 
+<table> 
+  <tr> 
+    <td class=text3>Zvolte formát:</td> 
+    <td class=text1> 
+      <a href=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62573?func=full-set-set&set_number=003287&set_entry=000001&format=999>Standardní formát</a> 
+    </td> 
+    <td class=text1> 
+      <a href=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62574?func=full-set-set&set_number=003287&set_entry=000001&format=038>Katalogizační lístek</a> 
+    </td> 
+    <td class=text1> 
+      <a href=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62575?func=full-set-set&set_number=003287&set_entry=000001&format=040>Zkrácený záznam</a> 
+    </td> 
+    <td class=text1> 
+      <a href=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62576?func=full-set-set&set_number=003287&set_entry=000001&format=002>S návěštími polí</a> 
+    </td> 
+    <td class=text1> 
+      <a href=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62577?func=full-set-set&set_number=003287&set_entry=000001&format=001>S kódy polí MARC</a> 
+    </td> 
+  </tr> 
+</table> 
+ 
+<table width=100%> 
+  <tr> 
+    <td class=text3 align=left>Záznam         1 z         1</td> 
+    <td align=right><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-prev-record-dim.gif border=0 alt='No Previous Record'> <img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-next-record-dim.gif border=0 alt='No Next Record'></td> 
+  </tr> 
+</table> 
+ 
+<table border=0 cellspacing=2 width=100%> 
+<tr> 
+<td valign="top" width="80%"> 
+<table id="fullbody" cellspacing=2 border=0 width="100%"> 
+<!-- end filename: full-set-head-ill-nobor --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Číslo zázn.</td> 
+  <td class=td1 align=left >001605176</td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Název</td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62578?func=service&doc_number=001605176&line_number=0013&service_type=TAG");'>Bakalářské studium&nbsp;[elektronický zdroj] :&nbsp;modelové otázky k přijímacím zkouškám na Univerzitu Karlovu v Praze 1. lékařskou fakultu</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Omezené použití</td> 
+  <td class=td1 align=left >Elektronická verze je přístupná pouze pro nevidomé uživatele na základě autentikace. Pro přístup k dokumentům kontaktujete Laboratoř Carolina pomocí e-mailu ipsc@ruk.cuni.cz</td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Jednotky-vše</td> 
+  <td class=td1 align=left ><A HREF=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62579?func=item-global&doc_library=CKS01&doc_number=001605176&year=&volume=&sub_library=>Všechny jednotky</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Jednotky-DK</td> 
+  <td class=td1 align=left ><A HREF=https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62580?func=item-global&doc_library=CKS01&doc_number=001605176&year=&volume=&sub_library=CAR> Carolina - IPSC UK</A><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62581?func=library&sub_library=CAR");'><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-info.gif border=0 alt='Library Info'></A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Výraz tez.-dle $2</td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62582?func=service&doc_number=001605176&line_number=0016&service_type=TAG");'>lékařství</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap></td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62583?func=service&doc_number=001605176&line_number=0017&service_type=TAG");'>lékařské fakulty</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap></td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62584?func=service&doc_number=001605176&line_number=0018&service_type=TAG");'>přijímací zkoušky</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Žánr/forma</td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62585?func=service&doc_number=001605176&line_number=0019&service_type=TAG");'>testy</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>Skupina Konspektu</td> 
+  <td class=td1 align=left >37.09&nbsp;-&nbsp;Organizace výuky a vzdělávání</td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap>MDT</td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62586?func=service&doc_number=001605176&line_number=0009&service_type=TAG");'>61</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap></td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62587?func=service&doc_number=001605176&line_number=0010&service_type=TAG");'>378.096:61</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap></td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62588?func=service&doc_number=001605176&line_number=0011&service_type=TAG");'>371.279.5/.6</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-999-body --> 
+ <tr> 
+  <td class=td1 id=bold valign=top nowrap></td> 
+  <td class=td1 align=left ><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-separator.gif alt='Link' border=0 alt=''><A HREF='javascript:open_window("https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62589?func=service&doc_number=001605176&line_number=0012&service_type=TAG");'>(079.1)</A></td> 
+ </tr> 
+<!-- filename: full-999-body --> 
+
+<!-- filename: full-set-tail --> 
+<!-- Script pro načítání citací--> 
+<tr> 
+  <td class=td1 id=bold>Citace</td> 
+  <td class=td1 id="cit"><img src='https://www.citace.com/Grafika/loading.gif' alt='načítání' style='vertical-align: middle;'>Načítám citaci ze serveru <a href = https://www.citacepro.com>Citace.com</a></td> 
+</tr> 
+<script>getCitation();</script> 
+<!-- konec scriptu pro načtení citace --> 
+ 
+</table> 
+</td> 
+<td id="cover_place" align="center" valign="top" width="20%"></td> 
+</tr> 
+ 
+</table> 
+ 
+<table width=100%> 
+  <tr> 
+    <td align=right><img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-prev-record-dim.gif border=0 alt='No Previous Record'> <img src=https://ckis.cuni.cz:443/exlibris/aleph/u22_1/alephe/www_f_cze/icon/f-next-record-dim.gif border=0 alt='No Next Record'></td> 
+  </tr> 
+</table> 
+ 
+<!-- 
+<a id="" style="display:none;" target="_blank"><img style="display:none;" id="google_book"/> O této knize v Google Book Search</a> 
+<script> 
+// Function to process GBS info and update the dom. 
+function ProcessGBSBookInfo(booksInfo) { 
+  var url_elem = document.getElementById(""); 
+  var pic_elem = document.getElementById("google_book"); 
+  for (var items_idx = 0; items_idx < booksInfo.totalItems ; items_idx++) 
+  { 
+        var item = booksInfo.items[items_idx]; 
+        if(!item.volumeInfo || !item.volumeInfo.industryIdentifiers) { 
+                continue; 
+        } 
+        url_elem.href = item.volumeInfo.infoLink; 
+        url_elem.style.display = ''; 
+        if (item.volumeInfo.imageLinks.smallThumbnail) 
+        { 
+           pic_elem.src = item.volumeInfo.imageLinks.smallThumbnail; 
+           pic_elem.style.display = ''; 
+           break; 
+        } 
+   } 
+} 
+</script> 
+<script src=""></script> 
+--> 
+<p> 
+<form name="permalinkForm"> 
+<script type="text/javascript"> 
+{ document.write('<b>URL titulu: </b><input size="100" name="permalink" value="https://ckis.cuni.cz:443/F/?func=direct&doc_number='+sysno+'&local_base='+baze+'&format=999" onClick="javascript:document.permalinkForm.permalink.focus(); document.permalinkForm.permalink.select();" readonly>'); } 
+</script> 
+</form> 
+ 
+<!-- filename: tail-bar-include --> 
+<hr> 
+<div class=text1 align=center> 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62590?func=file&file_name=logout">Konec relace</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62591?func=option-show&func_param=DISPLAY-OPTION">Nastavení</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62592?func=file&file_name=feedback">Otázky/připomínky</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62593?func=file&file_name=help-1" target="new">Nápověda</a> - 
+<!--<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62594?func=ill-request-1&request_type=ill-book-request">MVS</a> - --> 
+<a href="http://www.exlibris-usa.com" target=new>Ex Libris</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62595?func=find-e">Prohlížení</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62596?func=find-a-0">Vyhledávání</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62597?func=short">Výsledky dotazu</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62598?func=history">Předchozí dotazy</a> - 
+<a href="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62599?func=file&file_name=base-list">Databáze</a> - 
+</div> 
+<!-- end filename: tail-bar-include --> 
+<!-- filename: copyrights --> 
+<br> 
+<p class="copyright"> 
+&copy; 2015 Ex Libris 
+</p> 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); 
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script type="text/javascript"> 
+try { 
+var pageTracker = _gat._getTracker("UA-7948595-1"); 
+pageTracker._trackPageview(); 
+} catch(err) {}</script> 
+<!-- end filename: copyrights --> 
+ 
+<script> 
+// Function to process SFX buttons 
+function ProcessSFX(SFX_String) { 
+  var sfx_elem; 
+  sfx_elem = document.getElementById("sfx_button"); 
+  sfx_elem.innerHTML = SFX_String 
+} 
+</script> 
+<script src="https://ckis.cuni.cz:443/F/Y192IMX3V18UI1P2NN6PL2BFSKRCK2QKGIY62B2IY4GU93CAP7-62600?func=load-sfx-data&doc_number=001605176"></script 
+ 
+</body> 
+</html> 
+<!-- filename: full-set-tail-end --> 
+
+ 
