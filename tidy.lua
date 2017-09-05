@@ -39,6 +39,15 @@ local function make_stderr()
 end
 
 
+local function strip_comments(s)
+  return s:gsub("<!%-%-.-%-%->", "")
+end
+
+local function strip_scripts(s)
+  return s:gsub("<script.-</script>", "")
+end
+
+
 -- options will be passed to tidy command. they can be passed as string or table
 local function tidy_file(filename,options)
   local options = options or ""
@@ -59,7 +68,9 @@ end
 
 local M = {
   tidy = tidy,
-  tidy_file = tidy_file
+  tidy_file = tidy_file,
+  strip_scripts = strip_scripts,
+  strip_comments = strip_comments
 }
 
 if _TEST then
