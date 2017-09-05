@@ -1,10 +1,15 @@
 local htmlparser = require "htmlparser"
 local rprint     = require "rprint"
+local tidy       = require "tidy"
 local sysno = arg[1]
 
-local htmlfile = io.open("test.html", "r")
-local text = htmlfile:read("*all")
-htmlfile:close()
+
+-- local htmlfile = io.open("test.html", "r")
+-- local text = htmlfile:read("*all")
+-- htmlfile:close()
+local text = tidy.tidy_file("test.html")
+text = tidy.strip_comments(text)
+text = tidy.strip_scripts(text)
 local dom = htmlparser.parse(text)
 
 local function print_children(node, level)
