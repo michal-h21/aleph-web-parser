@@ -21,14 +21,18 @@ local test = [[
 
 local htmlparser = require "htmlparser"
 local tidy       = require "tidy"
+local strip_scripts  = tidy.strip_scripts
+local strip_comments = tidy.strip_comments
 
 -- local testf = io.open("test-tidy.html", "r")
 -- local testf = io.open("test.html", "r")
 -- local test = testf:read("*all")
 local test = tidy.tidy_file("test.html")
+test = strip_comments(test)
+test = strip_scripts(test)
 
-test = test:gsub("<!%-%-.-%-%->", "")
-test = test:gsub("<script.-</script>", "")
+-- test = test:gsub("<!%-%-.-%-%->", "")
+-- test = test:gsub("<script.-</script>", "")
 -- print(test)
 -- testf:close()
 
@@ -43,7 +47,7 @@ if #selected > 0 then
     for _,node in ipairs(td.nodes) do
       print(node.name)
       print("content: " .. node:getcontent())
-      print("text:   " .. node:gettext())
+      -- print("text:   " .. node:gettext())
     end
   end
 end
