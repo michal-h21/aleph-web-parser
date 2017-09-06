@@ -20,7 +20,7 @@ local test = [[
 ]]
 
 local htmlparser = require "htmlparser"
-local tidy       = require "tidy"
+local tidy       = require "refmanager.tidy"
 local strip_scripts  = tidy.strip_scripts
 local strip_comments = tidy.strip_comments
 

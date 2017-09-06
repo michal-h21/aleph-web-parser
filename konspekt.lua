@@ -1,6 +1,6 @@
 local htmlparser = require "htmlparser"
 local rprint     = require "rprint"
-local tidy       = require "tidy"
+local tidy       = require "refmanager.tidy"
 local sysno = arg[1]
 
 
