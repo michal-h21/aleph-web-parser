@@ -21,6 +21,7 @@ local test = [[
 
 local htmlparser = require "htmlparser"
 local tidy       = require "refmanager.tidy"
+local http       = require "refmanager.http"
 local strip_scripts  = tidy.strip_scripts
 local strip_comments = tidy.strip_comments
 
@@ -51,3 +52,8 @@ if #selected > 0 then
     end
   end
 end
+
+local www = http.new("https://www.csfd.cz/film/8365-vyvoleny/prehled/")
+for k,v in pairs(www) do print(k, tostring(v)) end
+www:go()
+print(www:get_body())
