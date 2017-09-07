@@ -1,9 +1,12 @@
 local htmlparser = require "htmlparser"
 local rprint     = require "rprint"
 local tidy       = require "refmanager.tidy"
+local fs         = require "luarocks.fs.lua"
+local dir        = require "luarocks.dir"
+local lpackage   = require "luarocks.repos"
+
+
 local sysno = arg[1]
-
-
 -- local htmlfile = io.open("test.html", "r")
 -- local text = htmlfile:read("*all")
 -- htmlfile:close()
@@ -51,4 +54,24 @@ if #tbl > 0 then
 end
 
 
+for k,v in pairs(fs.list_dir()) do
+  print("fs", k,v)
+end
+
+print("dir name", dir.dir_name("/usr/local/bin/env"))
+
+local manif = require "luarocks.manif"
+local search = require "luarocks.search"
+local cfg  = require "luarocks.cfg"
+
+print(cfg.rocks_provided["lua-refmanager"])
+for k,v in pairs(cfg.rocks_provided) do print("provided", k,v) end
+
+-- local query = search.make_query("lpeg")
+-- local result = search.search_repos(query)
+-- print("result", #result)
+-- for k,v in pairs(result) do print("search", k,v) end
+-- for k,v in pairs() do
+--   print("version",k, tostring(v))
+-- end
 

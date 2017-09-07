@@ -19,25 +19,28 @@ local test = [[
 </html>
 ]]
 
-local htmlparser = require "htmlparser"
-local tidy       = require "refmanager.tidy"
-local http       = require "refmanager.http"
-local strip_scripts  = tidy.strip_scripts
-local strip_comments = tidy.strip_comments
+-- local htmlparser = require "htmlparser"
+-- local tidy       = require "refmanager.tidy"
+-- local http       = require "refmanager.http"
+local html       = require "refmanager.html"
+-- local strip_scripts  = tidy.strip_scripts
+-- local strip_comments = tidy.strip_comments
 
 -- local testf = io.open("test-tidy.html", "r")
 -- local testf = io.open("test.html", "r")
 -- local test = testf:read("*all")
-local test = tidy.tidy_file("test.html")
-test = strip_comments(test)
-test = strip_scripts(test)
+-- local test = tidy.tidy_file("test.html")
+-- test = strip_comments(test)
+-- test = strip_scripts(test)
+local www = html.new()
+local dom = www:file("test.html"):clean():get_dom()
 
 -- test = test:gsub("<!%-%-.-%-%->", "")
 -- test = test:gsub("<script.-</script>", "")
 -- print(test)
 -- testf:close()
 
-local dom = htmlparser.parse(test)
+-- local dom = htmlparser.parse(test)
 
 local selected = dom:select("#fullbody")
 
@@ -53,7 +56,12 @@ if #selected > 0 then
   end
 end
 
-local www = http.new("https://www.csfd.cz/film/8365-vyvoleny/prehled/")
-for k,v in pairs(www) do print(k, tostring(v)) end
-www:go()
-print(www:get_body())
+-- local www = http.new("https://www.csfd.cz/film/8365-vyvoleny/prehled/")
+-- for k,v in pairs(www) do print(k, tostring(v)) end
+-- www:go()
+
+local dom = www:url("https://www.csfd.cz/film/8365-vyvoleny/prehled/"):clean():get_dom()
+local selected = dom:select("title")
+print(selected[1]:getcontent())
+
+-- print(www:get_body())
