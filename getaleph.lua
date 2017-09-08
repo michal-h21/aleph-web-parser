@@ -26,7 +26,6 @@ function Opac:search(query)
   local new = base .. query
   print(www:url(new):clean():get_body())
 end
-  
 
 
 
