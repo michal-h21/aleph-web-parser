@@ -61,12 +61,37 @@ function Opac:get_clean_www(url)
   -- return www:url(url):clean():get_body()
 end
 
+--- Find links to records for results 
+-- @param body HTML string with search results
+-- @return Table with links to records
+function Opac:get_result(body)
+  -- the HTML page with results is invalid mess, it breaks HTML tidy and parser
+  -- so we must extract only the relevant table using regex, it can be then 
+  -- processed using DOM
+  local result_table =  body:match("(<table[^>]-short%-a%-table.-</table>)")
+  print(result_table)
+  local www = self.www
+  local dom = www:string(result_table):get_dom()
+  local urls = {}
+  for _, row in ipairs(dom:select("tr")) do
+    -- uppercase elements and attributes. really?
+    -- another Aleph madness
+    local links = row:select("td A")
+    if #links > 0 then
+      print(links[1].attributes[ "HREF" ])
+    end
+    -- the anchor is only in the first table column
+    -- 
+  end
+  return urls
+end
+
 function Opac:search(query)
   -- http://ckis.cuni.cz/F/?func=find-c&ccl_term=SYS+%3D+1878726&local_base=%70%65%64%66
   local base = self.base_url
   local new = base .. query
   local body = self:get_clean_www(new)
-  print(body)
+  local result_table = self:get_result(body)
 end
 
 
@@ -82,7 +107,8 @@ local opac = Opac.new("https://ckis.cuni.cz/F/")
 print(opac.base_url)
 
 
-opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
+-- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
+opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
 -- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 -- https://ckis.cuni.cz/F/AJG1KRKT2RSVJMN1QACVQ4XGH2XFLIYNV7ND836QU1UU362IAB-35717?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
 -- https://ckis.cuni.cz:443/F/9VQ26UBEQBE7N7NY8FKVBD9THK99QQNS5XIXGVTBXUUGCHRTIH-37482?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
