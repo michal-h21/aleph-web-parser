@@ -84,16 +84,18 @@ function Opac:get_result(body)
   -- so we must extract only the relevant table using regex, it can be then 
   -- processed using DOM
   local result_table =  body:match("(<table[^>]-short%-a%-table.-</table>)")
-  print(result_table)
+  -- result_table = tidy.strip_comments(tidy.strip_scripts(result_table))  
+  -- print(result_table)
   local www = self.www
-  local dom = www:string(result_table):get_dom()
+  local dom = www:string(result_table):clean():get_dom()
+  -- print(www:get_body())
   local urls = {}
   for _, row in ipairs(dom:select("tr")) do
     -- uppercase elements and attributes. really?
     -- another Aleph madness
-    local links = row:select("td A")
+    local links = row:select("td a")
     if #links > 0 then
-      print(links[1].attributes[ "HREF" ])
+       urls[#urls+1] = links[1].attributes[ "href" ]
     end
     -- the anchor is only in the first table column
     -- 
