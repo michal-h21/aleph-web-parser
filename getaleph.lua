@@ -53,13 +53,28 @@ end
 -- @return HTML code
 function Opac:get_clean_www(url)
   local www = self.www
-  local ht = self:get_www(url)
-  -- local tidyed = tidy.tidy(ht)
-  local uncomment = tidy.strip_comments(ht)
-  local unscript = tidy.strip_scripts(uncomment)
-  return unscript
-  -- return www:url(url):clean():get_body()
+  -- local ht = self:get_www(url)
+  -- -- local tidyed = tidy.tidy(ht)
+  -- local uncomment = tidy.strip_comments(ht)
+  -- local unscript = tidy.strip_scripts(uncomment)
+  -- return unscript
+  return www:url(url):clean():get_body()
 end
+
+--- Build new URL for Aleph using the session number
+-- @param url to be fetched
+-- @return correct url
+function Opac:build_url(new)
+  local new = new
+  if new:match("^http") then
+    new = new:match("(%?.*)$")
+  end
+  if new:sub(1,1)~="?" then
+    new = "?" .. new
+  end
+  return self.base_url .. new
+end
+
 
 --- Find links to records for results 
 -- @param body HTML string with search results
@@ -86,15 +101,22 @@ function Opac:get_result(body)
   return urls
 end
 
-function Opac:search(query)
+
+
+--- 
+-- @param query URL to be searched 
+-- @return table with search results URLs
+function Opac:search_query(query)
   -- http://ckis.cuni.cz/F/?func=find-c&ccl_term=SYS+%3D+1878726&local_base=%70%65%64%66
-  local base = self.base_url
-  local new = base .. query
+  local new = self:build_url(query)
   local body = self:get_clean_www(new)
   local result_table = self:get_result(body)
 end
 
+function Opac:search(options)
+  -- https://ckis.cuni.cz/F/KA1TUX3X6RLRUDJ8CB4C7I5UQVAFSEHR8D2EMCCT9RR9YJU8ME-46290?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)+and+(wti=kultur?)&adjacent=N&local_base=CKS&x=42&y=11&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
 
+end
 
 
 
@@ -108,7 +130,9 @@ print(opac.base_url)
 
 
 -- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
-opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
+opac:search_query( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
+
+opac:search_query("?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)")
 -- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 -- https://ckis.cuni.cz/F/AJG1KRKT2RSVJMN1QACVQ4XGH2XFLIYNV7ND836QU1UU362IAB-35717?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
 -- https://ckis.cuni.cz:443/F/9VQ26UBEQBE7N7NY8FKVBD9THK99QQNS5XIXGVTBXUUGCHRTIH-37482?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
