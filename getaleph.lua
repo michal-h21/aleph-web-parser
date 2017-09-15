@@ -167,9 +167,13 @@ print(opac.base_url)
 -- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 opac:search_query( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
 
-opac:search_query("?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)")
+-- opac:search_query("?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)")
 
-opac:search_ccl({{SYS=187872}, "or", {SYS=123322}})
+local results = opac:search_ccl({{SYS=187872}, "or", {SYS=123322}})
+
+for k,v in ipairs(results) do print(v) end
+
+
 
 -- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 -- https://ckis.cuni.cz/F/AJG1KRKT2RSVJMN1QACVQ4XGH2XFLIYNV7ND836QU1UU362IAB-35717?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
