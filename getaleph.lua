@@ -75,6 +75,10 @@ function Opac:build_url(new)
   return self.base_url .. new
 end
 
+--- Make URLs retrieved from href attribute suitable for HTTP request
+function Opac:fix_link(url)
+  return url:gsub("&amp;", "&")
+end
 
 --- Find links to records for results 
 -- @param body HTML string with search results
@@ -95,7 +99,7 @@ function Opac:get_result(body)
     -- another Aleph madness
     local links = row:select("td a")
     if #links > 0 then
-       urls[#urls+1] = links[1].attributes[ "href" ]
+       urls[#urls+1] = self:fix_link(links[1].attributes[ "href" ])
     end
     -- the anchor is only in the first table column
     -- 
@@ -111,6 +115,7 @@ end
 function Opac:search_query(query)
   -- http://ckis.cuni.cz/F/?func=find-c&ccl_term=SYS+%3D+1878726&local_base=%70%65%64%66
   local new = self:build_url(query)
+  print("search url", new)
   local body = self:get_clean_www(new)
   local result_table = self:get_result(body)
   return result_table
