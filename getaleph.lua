@@ -14,6 +14,10 @@ function Opac.new(server_url)
   self.server = server_url
   local www = html.new()
   self.www = www
+  --- @field marc_id HTML id of table with MARC records
+  self.marc_id = "#fullbody"
+  --- @field marc_separator character used for separation of subfields in MARC record
+  self.marc_separator = "|"
   -- we must load the Aleph landing page first, to obtain the
   -- session id
   local initialize = self:get_www(server_url)
@@ -157,6 +161,41 @@ function Opac:search_ccl(query)
 end
 
 
+--- Parse MARC data
+-- @param field tag number and indicator
+-- @param data string with subfields
+-- return table
+function Opac:parse_marc_fields(tag, fields)
+  local separator = self.marc_separator or "|"
+  local currenttag, indicator1, indicator2 = tag:match("^(%d%d%d)(%d?)(%d?)")
+  currenttag = currenttag or tag
+  local subfields = {}
+  -- parse subfields (|a value)
+  local pattern = separator .."(%w)%s*([^".. separator.. "]+)"
+  -- not every field has subfields, we remove them and insert them to a table
+  local base = fields:gsub(pattern, function(name, value)
+    subfields[#subfields+1] = {name = name, value = value}
+    return ""
+  end)
+  if base ~= "" then
+    table.insert(subfields, 1, {name = "", value = base})
+  end
+  return {tag = currenttag, indicators = {indicator1, indicator2}, fields = subfields}
+end
+
+--- Build table with MARC tags as keys, for easy and fast retrieval
+-- @param marc_data table returned by Opac:parse_marc_fields
+-- @return table
+function Opac:build_marc_record(marc_data)
+  local data = {}
+  for _, v in ipairs(marc_data) do
+    local name = v.tag
+    local records = data[name] or {}
+    records[#records+1] = v
+    data[name] = records
+  end
+  return data
+end
 --- Get MARC data for given search result
 -- @param url full url for the record
 -- @return table with MARC fields
@@ -164,11 +203,22 @@ function Opac:get_record(url)
   -- the search result points to short record by default
   -- we need to point the url to the MARC record instead
   local marcurl = url:gsub("format=[0-9]+", "format=001")
-  local body = self:get_clean_www(marcurl)
+  local marc_data = {}
+  local www = self.www
+  local dom = www:url(marcurl):clean():get_dom()
+  local id = self.marc_id
+  local rows = dom:select(id .. " tr")
+  for _,v in pairs(rows) do
+    local columns = v:select "td"
+    local tags = columns[1]:getcontent()
+    local fields = columns[2]:getcontent()
+    marc_data[#marc_data+1] = self:parse_marc_fields(tags, fields)
+  end
+  return self:build_marc_record(marc_data)
 end
 
 --- Get MARC data for record with given system number
--- @param sysno Aleph record number 
+-- @param sysno Aleph record number
 -- @return table with MARC fields
 function Opac:get_sysno(sysno)
   -- local search = string.format("?func=direct&doc_number=%s&local_base=CKS01&format=001",tostring(sysno))
