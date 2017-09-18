@@ -8,7 +8,8 @@ local tidy = require "refmanager.tidy"
 local Opac = {}
 Opac.__index = Opac
 
---- @tparam table server_url Opac base url
+--- Opac constructor
+-- @param server_url Opac base url
 function Opac.new(server_url)
   local self = setmetatable({}, Opac)
   self.server = server_url
@@ -28,6 +29,9 @@ function Opac.new(server_url)
   self.base_url = self:get_search_url(search_form)
   return self
 end
+
+--- Opac class
+-- @type Opac
 
 --- Find base url with session number on basic Aleph page
 -- @param body HTML code of the Aleph landing page
@@ -162,8 +166,8 @@ end
 
 
 --- Parse MARC data
--- @param field tag number and indicator
--- @param data string with subfields
+-- @param tag tag number and indicator
+-- @param fields string with subfields
 -- return table
 function Opac:parse_marc_fields(tag, fields)
   local separator = self.marc_separator or "|"
