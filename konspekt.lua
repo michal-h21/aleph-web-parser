@@ -19,10 +19,10 @@ local function print_children(node, level)
   local level = level or 0
   local indent = string.rep("  ", level)
   print(indent .. node.name)
-  print(indent .. "id:     " .. tostring(node.id))
-  print(indent .. "classes:" .. table.concat(node.classes, " "))
+  -- print(indent .. "id:     " .. tostring(node.id))
+  -- print(indent .. "classes:" .. table.concat(node.classes, " "))
   print(indent .."content: " .. node:getcontent())
-  print(indent .. "text:   " .. node:gettext())
+  -- print(indent .. "text:   " .. node:gettext())
   -- for k,v in pairs(node) do print(k, tostring(v)) end
   for x,y in ipairs(node.nodes) do
     print_children(y, level + 1)
@@ -49,8 +49,9 @@ if #tbl > 0 then
     --     print(x, y.name)
     --   end
     -- end
-    break
+    -- break
   end
+  -- end
 end
 
 
