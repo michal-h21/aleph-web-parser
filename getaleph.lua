@@ -157,6 +157,27 @@ function Opac:search_ccl(query)
 end
 
 
+--- Get MARC data for given search result
+-- @param url full url for the record
+-- @return table with MARC fields
+function Opac:get_record(url)
+  -- the search result points to short record by default
+  -- we need to point the url to the MARC record instead
+  local marcurl = url:gsub("format=[0-9]+", "format=001")
+  local body = self:get_clean_www(marcurl)
+end
+
+--- Get MARC data for record with given system number
+-- @param sysno Aleph record number 
+-- @return table with MARC fields
+function Opac:get_sysno(sysno)
+  -- local search = string.format("?func=direct&doc_number=%s&local_base=CKS01&format=001",tostring(sysno))
+  local search = string.format("?func=direct&doc_number=%s&format=001",tostring(sysno))
+  local url = self:build_url(search)
+  return self:get_record(url)
+end
+
+
 local opac = Opac.new("https://ckis.cuni.cz/F/")
 -- local opac = Opac.new("https://ckis.cuni.cz:443/F/9VQ26UBEQBE7N7NY8FKVBD9THK99QQNS5XIXGVTBXUUGCHRTIH-37482?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 
