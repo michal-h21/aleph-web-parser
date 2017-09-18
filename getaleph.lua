@@ -1,7 +1,6 @@
 -- získat MARC záznam z OPACu Alephu
 --
 local html = require "refmanager.html"
-local tidy = require "refmanager.tidy"
 
 -- we need to get a session ID first
 --
@@ -229,27 +228,5 @@ function Opac:get_sysno(sysno)
   return self:get_record(url)
 end
 
-
-local opac = Opac.new("https://ckis.cuni.cz/F/")
-
-
-
-print(opac.base_url)
-
-
--- opac:search_query( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
-
--- opac:search_query("?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)")
-
-local results = opac:search_ccl({{SYS=187872}, "or", {SYS=123322}})
-
-for _,v in ipairs(results) do print(v) end
-
-
-local marc = opac:get_sysno(1175616)
-for k,v in pairs(marc) do
-  -- print(k, table.concat(v.indicators or {}, ":"), table.concat(
-  print(k, #v)
-end
 
 return Opac
