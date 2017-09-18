@@ -72,7 +72,8 @@ end
 
 --- Make URLs retrieved from href attribute suitable for HTTP request
 function Opac:fix_link(url)
-  return url:gsub("&amp;", "&")
+  -- return url:gsub("&amp;", "&")
+  return html:decode_entities(url)
 end
 
 --- Find links to records for results 
