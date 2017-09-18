@@ -53,11 +53,6 @@ end
 -- @return HTML code
 function Opac:get_clean_www(url)
   local www = self.www
-  -- local ht = self:get_www(url)
-  -- -- local tidyed = tidy.tidy(ht)
-  -- local uncomment = tidy.strip_comments(ht)
-  -- local unscript = tidy.strip_scripts(uncomment)
-  -- return unscript
   return www:url(url):clean():get_body()
 end
 
