@@ -30,17 +30,44 @@ local function print_children(node, level)
 end
     
 
+local function get_marc_data(tag, fields, separator)
+  local separator = separator or "|"
+  local currenttag, indicator1, indicator2 = tag:match("^(%d%d%d)(%d?)(%d?)")
+  currenttag = currenttag or tag
+  print(currenttag, indicator1, indicator2, fields)
+  local subfields = {}
+  -- parse subfields (|a value)
+  local pattern = separator .."(%w)%s*([^".. separator.. "]+)"
+  -- not every field has subfields, we remove them and insert them to a table
+  local base = fields:gsub(pattern, function(name, value)
+    subfields[#subfields+1] = {name = name, value = value}
+    return ""
+  end)
+  if base ~= "" then
+    table.insert(subfields, 1, {name = "", value = base})
+  end
+  for k,v in ipairs(subfields) do
+    print(v.name, v.value)
+  end
+  return {tag = currenttag, indicators = {indicator1, indicator2}, fields = subfields}
+end
 
 local tbl = dom:select("#fullbody")
+local marc_data =  {}
 if #tbl > 0 then
   -- we habe only one element with id #fullbody
   local el = tbl[1]
   -- process table rows
+  -- for _,el in ipairs(tbl) do
   for k,v in ipairs(el.nodes) do
     print "--------------------------------"
-    print_children(v)
+    local columns = v:select "td"
+    local tags = columns[1]:getcontent()
+    local fields = columns[2]:getcontent()
+    marc_data[#marc_data+1] = get_marc_data(tags, fields) 
+    -- print_children(v)
     -- print(k, v.name)
-    
+
     -- rprint(v.nodes)
     -- local td = v:select("td")
     -- if #td > 0 then
