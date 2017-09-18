@@ -130,7 +130,7 @@ end
 -- It should look like: {{SYS=187872}, "or", {SYS=123322}}
 function Opac:build_ccl_query(options)
   local query = {}
-  local logical 
+  local logical
   for _, object in ipairs(options) do
     -- string object can be and, or, not
     if type(object) == "string" then
@@ -153,8 +153,6 @@ function Opac:build_ccl_query(options)
 
   end
   return table.concat(query, "+")
-  -- https://ckis.cuni.cz/F/KA1TUX3X6RLRUDJ8CB4C7I5UQVAFSEHR8D2EMCCT9RR9YJU8ME-46290?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)+and+(wti=kultur?)&adjacent=N&local_base=CKS&x=42&y=11&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
-
 end
 
 --- Search using CCL table query
@@ -233,26 +231,25 @@ end
 
 
 local opac = Opac.new("https://ckis.cuni.cz/F/")
--- local opac = Opac.new("https://ckis.cuni.cz:443/F/9VQ26UBEQBE7N7NY8FKVBD9THK99QQNS5XIXGVTBXUUGCHRTIH-37482?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
 
 
 
 print(opac.base_url)
 
 
--- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
-opac:search_query( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
+-- opac:search_query( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS")
 
 -- opac:search_query("?func=find-c&ccl_term=(wau=carlyle+or+ruskin+or+hegel)")
 
 local results = opac:search_ccl({{SYS=187872}, "or", {SYS=123322}})
 
-for k,v in ipairs(results) do print(v) end
+for _,v in ipairs(results) do print(v) end
 
 
+local marc = opac:get_sysno(1175616)
+for k,v in pairs(marc) do
+  -- print(k, table.concat(v.indicators or {}, ":"), table.concat(
+  print(k, #v)
+end
 
--- opac:search( "?func=find-c&ccl_term=SYS=1878726&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=")
--- https://ckis.cuni.cz/F/AJG1KRKT2RSVJMN1QACVQ4XGH2XFLIYNV7ND836QU1UU362IAB-35717?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
--- https://ckis.cuni.cz:443/F/9VQ26UBEQBE7N7NY8FKVBD9THK99QQNS5XIXGVTBXUUGCHRTIH-37482?func=find-c&ccl_term=sys=1878726&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
-
--- https://ckis.cuni.cz/F/279MX193TS7VJI8AXC8SFBGE95YKSIEESXU6VAUD6TQN7LHTVQ-61760?func=find-d&find_code=WAU&request=helus&adjacent1=N&find_code=WTI&request=psychologie&adjacent2=N&find_code=WRD&request=&adjacent3=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=
+return Opac
