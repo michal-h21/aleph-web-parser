@@ -34,6 +34,7 @@ local html       = require "refmanager.html"
 -- test = strip_scripts(test)
 local www = html.new()
 local dom = www:file("test.html"):clean():get_dom()
+-- local dom = www:file("uff.html"):clean():get_dom()
 
 -- test = test:gsub("<!%-%-.-%-%->", "")
 -- test = test:gsub("<script.-</script>", "")
